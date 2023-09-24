@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-const CanvasComponent = (props) => {
-    const canvasRef = useRef(null);
+const CanvasComponent = React.forwardRef((props, canvasRef) => {
     const [isDrawing, setIsDrawing] = useState(false);
 
     useEffect(() => {
@@ -43,6 +42,6 @@ const CanvasComponent = (props) => {
         onMouseOut={stopDrawing}
         onMouseMove={draw}
     />;
-}
+})
 
 export default CanvasComponent;
